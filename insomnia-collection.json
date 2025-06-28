@@ -1,0 +1,909 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2024-01-01T12:00:00.000Z",
+  "__export_source": "insomnia.desktop.app:v2023.5.8",
+  "resources": [
+    {
+      "_id": "req_grupo_root",
+      "parentId": "wrk_biblioteca",
+      "_type": "request_group",
+      "name": "Sistema Biblioteca API",
+      "description": "API completa para gerenciamento de biblioteca com usuários, livros, gêneros e empréstimos",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1000000000
+    },
+    {
+      "_id": "wrk_biblioteca",
+      "_type": "workspace",
+      "name": "Sistema Biblioteca",
+      "description": "Workspace para API do Sistema de Biblioteca desenvolvido em Laravel",
+      "scope": "collection"
+    },
+    {
+      "_id": "env_base",
+      "parentId": "wrk_biblioteca",
+      "_type": "environment",
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:8000/api"
+      },
+      "dataPropertyOrder": {
+        "&": ["base_url"]
+      },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1000000000
+    },
+    {
+      "_id": "jar_cookies",
+      "parentId": "wrk_biblioteca",
+      "_type": "cookie_jar",
+      "name": "Default Jar",
+      "cookies": []
+    },
+    {
+      "_id": "req_grupo_info",
+      "parentId": "req_grupo_root",
+      "_type": "request_group",
+      "name": "📊 Informações da API",
+      "description": "Endpoints informativos e de status da API",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -900000000
+    },
+    {
+      "_id": "req_api_status",
+      "parentId": "req_grupo_info",
+      "_type": "request",
+      "url": "{{ _.base_url }}/",
+      "name": "Status da API",
+      "description": "Verificar se a API está funcionando",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -100000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_api_info",
+      "parentId": "req_grupo_info",
+      "_type": "request",
+      "url": "{{ _.base_url }}/info",
+      "name": "Informações da API",
+      "description": "Obter informações detalhadas sobre a API",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -90000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_grupo_users",
+      "parentId": "req_grupo_root",
+      "_type": "request_group",
+      "name": "👥 Usuários",
+      "description": "Gerenciamento de usuários da biblioteca",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -800000000
+    },
+    {
+      "_id": "req_users_list",
+      "parentId": "req_grupo_users",
+      "_type": "request",
+      "url": "{{ _.base_url }}/users",
+      "name": "Listar Usuários",
+      "description": "Listar todos os usuários cadastrados",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -100000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_users_create",
+      "parentId": "req_grupo_users",
+      "_type": "request",
+      "url": "{{ _.base_url }}/users",
+      "name": "Criar Usuário",
+      "description": "Criar novo usuário na biblioteca",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"João Silva\",\n  \"email\": \"joao.silva@email.com\",\n  \"numero_cadastro\": \"USR001\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -90000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_users_show",
+      "parentId": "req_grupo_users",
+      "_type": "request",
+      "url": "{{ _.base_url }}/users/1",
+      "name": "Buscar Usuário por ID",
+      "description": "Buscar usuário específico pelo ID",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -80000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_users_update",
+      "parentId": "req_grupo_users",
+      "_type": "request",
+      "url": "{{ _.base_url }}/users/1",
+      "name": "Atualizar Usuário",
+      "description": "Atualizar dados de um usuário existente",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"João Silva Santos\",\n  \"email\": \"joao.santos@email.com\",\n  \"numero_cadastro\": \"USR001\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -70000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_users_delete",
+      "parentId": "req_grupo_users",
+      "_type": "request",
+      "url": "{{ _.base_url }}/users/1",
+      "name": "Excluir Usuário",
+      "description": "Excluir um usuário (apenas se não tiver empréstimos ativos)",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -60000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_grupo_generos",
+      "parentId": "req_grupo_root",
+      "_type": "request_group",
+      "name": "📚 Gêneros",
+      "description": "Gerenciamento de gêneros literários",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -700000000
+    },
+    {
+      "_id": "req_generos_list",
+      "parentId": "req_grupo_generos",
+      "_type": "request",
+      "url": "{{ _.base_url }}/generos",
+      "name": "Listar Gêneros",
+      "description": "Listar todos os gêneros cadastrados",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -100000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_generos_create",
+      "parentId": "req_grupo_generos",
+      "_type": "request",
+      "url": "{{ _.base_url }}/generos",
+      "name": "Criar Gênero",
+      "description": "Criar novo gênero literário",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"Ficção Científica\",\n  \"descricao\": \"Livros de ficção científica e futurismo\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -90000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_generos_show",
+      "parentId": "req_grupo_generos",
+      "_type": "request",
+      "url": "{{ _.base_url }}/generos/1",
+      "name": "Buscar Gênero por ID",
+      "description": "Buscar gênero específico pelo ID",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -80000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_generos_update",
+      "parentId": "req_grupo_generos",
+      "_type": "request",
+      "url": "{{ _.base_url }}/generos/1",
+      "name": "Atualizar Gênero",
+      "description": "Atualizar dados de um gênero existente",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"Ficção Científica Moderna\",\n  \"descricao\": \"Livros de ficção científica contemporânea e futurismo\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -70000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_generos_delete",
+      "parentId": "req_grupo_generos",
+      "_type": "request",
+      "url": "{{ _.base_url }}/generos/1",
+      "name": "Excluir Gênero",
+      "description": "Excluir um gênero (apenas se não tiver livros cadastrados)",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -60000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_grupo_livros",
+      "parentId": "req_grupo_root",
+      "_type": "request_group",
+      "name": "📖 Livros",
+      "description": "Gerenciamento do acervo de livros",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -600000000
+    },
+    {
+      "_id": "req_livros_list",
+      "parentId": "req_grupo_livros",
+      "_type": "request",
+      "url": "{{ _.base_url }}/livros",
+      "name": "Listar Livros",
+      "description": "Listar todos os livros do acervo",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -100000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_livros_list_filter",
+      "parentId": "req_grupo_livros",
+      "_type": "request",
+      "url": "{{ _.base_url }}/livros",
+      "name": "Listar Livros (com filtros)",
+      "description": "Listar livros com filtros por gênero, situação e autor",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "genero_id",
+          "value": "1",
+          "description": "Filtrar por gênero"
+        },
+        {
+          "name": "situacao",
+          "value": "disponivel",
+          "description": "Filtrar por situação (disponivel/emprestado)"
+        },
+        {
+          "name": "autor",
+          "value": "Machado",
+          "description": "Buscar por autor (busca parcial)"
+        }
+      ],
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -95000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_livros_disponiveis",
+      "parentId": "req_grupo_livros",
+      "_type": "request",
+      "url": "{{ _.base_url }}/livros-disponiveis",
+      "name": "Listar Livros Disponíveis",
+      "description": "Listar apenas livros disponíveis para empréstimo",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -92000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_livros_create",
+      "parentId": "req_grupo_livros",
+      "_type": "request",
+      "url": "{{ _.base_url }}/livros",
+      "name": "Criar Livro",
+      "description": "Adicionar novo livro ao acervo",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"Dom Casmurro\",\n  \"autor\": \"Machado de Assis\",\n  \"numero_registro\": \"LIV001\",\n  \"situacao\": \"disponivel\",\n  \"genero_id\": 1\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -90000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_livros_show",
+      "parentId": "req_grupo_livros",
+      "_type": "request",
+      "url": "{{ _.base_url }}/livros/1",
+      "name": "Buscar Livro por ID",
+      "description": "Buscar livro específico pelo ID",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -80000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_livros_update",
+      "parentId": "req_grupo_livros",
+      "_type": "request",
+      "url": "{{ _.base_url }}/livros/1",
+      "name": "Atualizar Livro",
+      "description": "Atualizar dados de um livro existente",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"Dom Casmurro - Edição Especial\",\n  \"autor\": \"Machado de Assis\",\n  \"numero_registro\": \"LIV001\",\n  \"situacao\": \"disponivel\",\n  \"genero_id\": 1\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -70000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_livros_delete",
+      "parentId": "req_grupo_livros",
+      "_type": "request",
+      "url": "{{ _.base_url }}/livros/1",
+      "name": "Excluir Livro",
+      "description": "Excluir um livro (apenas se não estiver emprestado)",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -60000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_grupo_emprestimos",
+      "parentId": "req_grupo_root",
+      "_type": "request_group",
+      "name": "📋 Empréstimos",
+      "description": "Gerenciamento de empréstimos de livros",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -500000000
+    },
+    {
+      "_id": "req_emprestimos_list",
+      "parentId": "req_grupo_emprestimos",
+      "_type": "request",
+      "url": "{{ _.base_url }}/emprestimos",
+      "name": "Listar Empréstimos",
+      "description": "Listar todos os empréstimos",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -100000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_emprestimos_list_filter",
+      "parentId": "req_grupo_emprestimos",
+      "_type": "request",
+      "url": "{{ _.base_url }}/emprestimos",
+      "name": "Listar Empréstimos (com filtros)",
+      "description": "Listar empréstimos com filtros por status e usuário",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "status",
+          "value": "ativo",
+          "description": "Filtrar por status (ativo/devolvido/atrasado/atrasados)"
+        },
+        {
+          "name": "user_id",
+          "value": "1",
+          "description": "Filtrar por usuário"
+        }
+      ],
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -95000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_emprestimos_atrasados",
+      "parentId": "req_grupo_emprestimos",
+      "_type": "request",
+      "url": "{{ _.base_url }}/emprestimos-atrasados",
+      "name": "Listar Empréstimos Atrasados",
+      "description": "Listar apenas empréstimos atrasados",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -92000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_emprestimos_create",
+      "parentId": "req_grupo_emprestimos",
+      "_type": "request",
+      "url": "{{ _.base_url }}/emprestimos",
+      "name": "Criar Empréstimo",
+      "description": "Criar novo empréstimo de livro",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"user_id\": 1,\n  \"livro_id\": 1,\n  \"data_emprestimo\": \"2024-01-01\",\n  \"data_devolucao_prevista\": \"2024-01-15\",\n  \"observacoes\": \"Empréstimo regular\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -90000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_emprestimos_show",
+      "parentId": "req_grupo_emprestimos",
+      "_type": "request",
+      "url": "{{ _.base_url }}/emprestimos/1",
+      "name": "Buscar Empréstimo por ID",
+      "description": "Buscar empréstimo específico pelo ID",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -80000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_emprestimos_update",
+      "parentId": "req_grupo_emprestimos",
+      "_type": "request",
+      "url": "{{ _.base_url }}/emprestimos/1",
+      "name": "Atualizar Empréstimo",
+      "description": "Atualizar dados de um empréstimo existente",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"user_id\": 1,\n  \"livro_id\": 1,\n  \"data_emprestimo\": \"2024-01-01\",\n  \"data_devolucao_prevista\": \"2024-01-20\",\n  \"status\": \"ativo\",\n  \"observacoes\": \"Prazo estendido\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -70000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_emprestimos_devolver",
+      "parentId": "req_grupo_emprestimos",
+      "_type": "request",
+      "url": "{{ _.base_url }}/emprestimos/1/devolver",
+      "name": "Devolver Livro",
+      "description": "Marcar empréstimo como devolvido",
+      "method": "PATCH",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -65000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_emprestimos_marcar_atrasado",
+      "parentId": "req_grupo_emprestimos",
+      "_type": "request",
+      "url": "{{ _.base_url }}/emprestimos/1/marcar-atrasado",
+      "name": "Marcar como Atrasado",
+      "description": "Marcar empréstimo como atrasado",
+      "method": "PATCH",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -62000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_emprestimos_delete",
+      "parentId": "req_grupo_emprestimos",
+      "_type": "request",
+      "url": "{{ _.base_url }}/emprestimos/1",
+      "name": "Excluir Empréstimo",
+      "description": "Excluir um empréstimo",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -60000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    }
+  ]
+}
+
